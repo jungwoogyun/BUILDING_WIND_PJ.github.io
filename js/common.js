@@ -86,7 +86,8 @@ nav_menu_img_items.forEach(item =>{
       item.setAttribute("data-toggle","off");
       const imgEl = item.firstElementChild;
       let str = imgEl.getAttribute('src');
-      str = str.substring(0,str.indexOf('.'))+"_off.png";
+      if(!str.includes('_off'))
+        str = str.substring(0,str.indexOf('.'))+"_off.png";
       imgEl.setAttribute('src',str);
     }
     
