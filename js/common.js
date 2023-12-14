@@ -72,7 +72,7 @@ nav_menu_img_items.forEach(item =>{
                
                 const buildingWindEl = document.querySelector('.buildingwind');
                 buildingWindEl.style.display='block';
-
+                buildingWindEl.style.opacity='1';
                 //--------------------------
                 //Canvas buildingwind X BUTTON EVENT
                 //--------------------------
