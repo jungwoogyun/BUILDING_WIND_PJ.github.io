@@ -45,7 +45,13 @@ nav_menu_img_items.forEach(item =>{
             // 만들 팝업창 height 크기의 1/2 만큼 보정값으로 빼주었음
             menuActiveArr[submenuIdx] =  window.open(submenuUrl+".html", '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
             console.log(submenuIdx,menuActiveArr[submenuIdx]);
+            
+            //팝업창 x버튼에 대한 이벤트 처리
+            menuActiveArr[submenuIdx].addEventListener('beforeunload',function(e){
 
+              console.log("TEST~~~");
+            })
+            
 
         }else{
             //IMAGE CHANGE
@@ -58,6 +64,7 @@ nav_menu_img_items.forEach(item =>{
             //ALERTPOPUP WINDOW CLOSE
             const submenuIdx = item.getAttribute('data-idx');
             menuActiveArr[submenuIdx].close();
+            
 
         }
 
@@ -66,10 +73,8 @@ nav_menu_img_items.forEach(item =>{
 })
 
 //--------------------------
-// 모달 드래그 가능하게 만들기(테스트)
+// POP Close Event Function
 //--------------------------
-
-
 
 //--------------------------
 // MAP CODE
