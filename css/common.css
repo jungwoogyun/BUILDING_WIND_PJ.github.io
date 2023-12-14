@@ -155,6 +155,7 @@ body::-webkit-scrollbar{
 }
 
 .wrapper>main>section>#map{
+ 
     width:100vw;
     height:100vh;
 
@@ -174,8 +175,8 @@ body::-webkit-scrollbar{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position:absolute;
-    left:85vw;
+    position:relative;
+    left:75vw;
 }
 
 
