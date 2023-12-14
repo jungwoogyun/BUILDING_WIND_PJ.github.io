@@ -79,8 +79,8 @@ body::-webkit-scrollbar{
 
 .wrapper>header>.top-header .right{
     display:flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
     text-align:right;
     width : 50px;
     color:white;
@@ -140,7 +140,7 @@ body::-webkit-scrollbar{
 /* MAIN */
 
 .wrapper>main{
-    height : 800px;
+  
     margin-top :180px;
     
 
@@ -151,32 +151,31 @@ body::-webkit-scrollbar{
     display:flex;
     justify-content: center;
     align-items: center;
-    
+    height:800px;
 }
 
 .wrapper>main>section>#map{
  
+    position:fixed;
     width:100vw;
-    height:100vh;
+    height:800px;
 
     
     background-color: orange;
 }
 
-.leaflet-control-container{
-    
-
+.wrapper>main>section>#map .leaflet-control-container{
     width : 50px;
     ;    
 }
-.leaflet-control-zoom{
- 
+.wrapper>main>section>#map  .leaflet-control-zoom{
+    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position:relative;
-    left:75vw;
+    left:90vw;
 }
 
 
