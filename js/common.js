@@ -44,9 +44,9 @@ nav_menu_img_items.forEach(item =>{
             {
               //팝업창 가운데로 맞추기
               var popupWidth = 1200;
-              var popupHeight = 550;
+              var popupHeight = 700;
               var popupX = (window.screen.width / 2) - (popupWidth / 2);
-              var popupY = (window.screen.height / 2) - (popupHeight / 2);
+              var popupY = (window.screen.height / 2) - (popupHeight / 3);
               //팝업창 활성화
               menuActiveArr[submenuIdx] =  window.open(submenuUrl+".html", '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
               isPopupOpend[submenuIdx] = true;
@@ -73,6 +73,18 @@ nav_menu_img_items.forEach(item =>{
                 const buildingWindEl = document.querySelector('.buildingwind');
                 buildingWindEl.style.display='block';
 
+                //--------------------------
+                //Canvas buildingwind X BUTTON EVENT
+                //--------------------------
+                  offCanvasCancelEl = document.querySelector('.buildingwind>.header>.cancel a')
+                  offCanvasCancelEl.addEventListener('click',function(){
+                  const buildingWindEl = document.querySelector('.buildingwind');
+                  buildingWindEl.style.display="none"; 
+                })
+
+               
+
+
               }
               //05MENU 클릭시 오픈캔버스에 내용표시 
               if(submenuUrl.includes("05")){
@@ -80,6 +92,14 @@ nav_menu_img_items.forEach(item =>{
                 const buildingWindEl = document.querySelector('.dangerzone');
                 buildingWindEl.style.display='block';
 
+                //--------------------------
+                //Canvas dangerzone X BUTTON EVENT
+                //--------------------------
+                  offCanvasDangerCancelEl = document.querySelector('.dangerzone>.header>.cancel a')
+                  offCanvasDangerCancelEl.addEventListener('click',function(){
+                    DangerCancelEl = document.querySelector('.dangerzone');
+                    DangerCancelEl.style.display="none"; 
+                })
               }
 
             }
@@ -123,6 +143,8 @@ nav_menu_img_items.forEach(item =>{
                 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
                 bsOffcanvas.hide();
              
+
+                
               //01MENU 클릭시 오픈캔버스에 제거
               if(submenuUrl.includes("01")){
                
@@ -173,6 +195,9 @@ nav_menu_img_items.forEach(item =>{
 
 
 });
+
+
+
 
 
 //--------------------------

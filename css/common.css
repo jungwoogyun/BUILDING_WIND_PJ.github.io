@@ -333,10 +333,58 @@ body::-webkit-scrollbar{
     border : 1px solid ;
 }
 
+/* OFFCANVAS X BUTTON */
+.offcanvas .offcanvas-body>.wrapper .buildingwind>.header>.cancel{
+    content:"X";
+    display:block;
+    position: absolute;
+    left:90%;
+    top:5px;
+    width : 25px;
+    height : 25px;
+    z-index:555;
 
+}
+
+
+.offcanvas .offcanvas-body>.wrapper .buildingwind>.header>.cancel>a{
+    font-size:white;
+    background-color: #2A76C7;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color : white;
+    text-decoration: none;
+    font-size:1rem;
  
+}
+/* OFFCANVAS X BUTTON */
+.offcanvas .offcanvas-body>.wrapper .dangerzone>.header>.cancel{
+    content:"X";
+    display:block;
+    position: absolute;
+    left:90%;
+    top:5px;
+    width : 25px;
+    height : 25px;
+    z-index:555;
 
-
+}
+.offcanvas .offcanvas-body>.wrapper .dangerzone>.header>.cancel>a{
+    font-size:white;
+    background-color: #2A76C7;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color : white;
+    text-decoration: none;
+    font-size:1rem;
+    
+}
 
 
 
