@@ -32,7 +32,8 @@ nav_menu_img_items.forEach(item =>{
             let str = imgEl.getAttribute('src');
             str = str.substring(0,str.indexOf('_'))+".png";
             imgEl.setAttribute('src',str);
-            //MODAL WINDOW OR.. WINDOW.OPEN90
+            //MODAL WINDOW OR.. WINDOW.OPEN()
+            window.open('/menu01.html','','width=500,height=500');
 
         }else{
             //IMAGE CHANGE
