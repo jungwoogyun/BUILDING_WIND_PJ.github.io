@@ -30,6 +30,169 @@
     <!-- COMMON CSS -->
     <link rel="stylesheet" href="css/common.css">
 
+
+    <style>
+        *{}
+        a{
+            text-decoration: none;
+            color:gray;
+        }
+        body{
+            
+          
+        }
+
+        .wrapper{
+          
+        }
+        .wrapper::after{
+            content : "";
+            position:absolute;
+            left:0px;top:0px;
+            background-color:#F2F2F2;
+            width:100vw;
+            height:100vh;
+            z-index:-1;
+
+        }
+
+  
+        .wrapper>header{
+          
+        }
+        .wrapper>header>.top-header{
+
+        }
+        .wrapper>header>nav{
+            position:relative;
+            z-index:5;
+        }
+        
+        .wrapper>main{}
+        .wrapper>main>section{}
+
+        .wrapper>main>section .login{
+          text-decoration: none;
+          text-align:right;
+          color:gray;
+          
+        }
+        .wrapper>main>section .id_login_block{
+         
+            position:relative;
+            z-index:2;
+            width:400px;
+            height:400px;
+            margin : 100px auto;
+            padding : 20px;
+            border : 1px solud gray;
+            border-radius :5px;
+            box-shadow : 5px 5px 5px 5px lightgray;
+            background-color:white;
+        }
+
+        .wrapper>main>section>.id_login_block>.header
+        {
+
+            margin-bottom:10px;
+           
+        }
+
+        .wrapper>main>section>.id_login_block>.body
+        {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .wrapper>main>section>.id_login_block>.body form{
+            width : 350px;
+        }
+        .wrapper>main>section>.id_login_block>.body form>*{
+            margin : 5px;
+        }
+
+        .wrapper>main>section   .join_req {
+            text-align:right;
+            font-size:0.8rem;
+
+        }
+        .wrapper>main>section  .etc_req{
+            text-align:center;
+            font-size:0.9rem;
+        }
+        .wrapper>main>section .oauth_icon{
+            display:flex;
+            justify-content:center;
+            align-items : center;
+        }
+        .wrapper>main>section .oauth_icon img{
+            display:block;
+
+            width : 45px;
+            height : 45px;
+            margin : 5px;
+            border : 50%;
+            margin-right:15px;
+        }
+        .google_icon{
+            width : 55px;
+            height : 55px;
+        }
+        .google_icon>*{
+            margin-right:10px;
+        }
+
+        .wrapper>footer{}
+
+
+
+
+        .insert-el-group{
+            border : 1px solid lightgray;
+            position:relative;
+            height:45px;
+            display:flex;
+            justify-content:center;
+            align-items : center;
+            border-radius:5px;
+            background-color:white;
+            margin-bottom:15px;
+        }
+        .insert-el-group input{
+            border : 0px;
+            outline: none;
+            height:35px;
+
+            font-size:0.8rem;
+            width:95%;
+
+        }
+        .insert-el-group .placeholder{
+            position:absolute;
+            left:20px;
+            top:10px;
+            font-size:0.9rem;
+            color:#585858;
+            transition:0.3s;
+            font-weight:500;
+        }
+
+
+
+        /* GOOGLE ICON  */
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 200,
+            'GRAD' 0,
+            'opsz' 24;
+            font-size: 2.2rem;
+            
+        };
+
+    </style>
+
 </head>
 <body>
         
@@ -41,22 +204,17 @@
                 <div>
                     <div class="left">
                         <div>
-                            <span>빌딩풍 위험도 분석 및 예방·대응 시스템</span>
+                         
                         </div>
                         <div>
-                            <form action="">
-                                <select  class="form-select w-25">
-                                    <option value="" selected>해운대</option>
-                                    <option value="" selected>송도</option>
-                                </select>
-                            </form>
+                 
                             
                         </div>
                     </div>
                     <div class="right">
                         <div>
                             <a href="javascript:void(0)">
-                                <span class="material-symbols-outlined">logout</span>
+                              
                             </a>
                         </div>
                     </div>
@@ -65,53 +223,54 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                     <div>
                         <ul class="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link  text-white" href="javascript:void(0)" data-toggle="off"  data-submenu="menu01" data-idx="1">
-                                    <img src="images/icon1_off.png"  alt=""  />
-                                    <div class="title">빌딩풍</div>
-                                </a>
-                            </li>
-                            <li class="nav-item  ms-3">
-                                <a class="nav-link  text-white" href="javascript:void(0)" data-toggle="off" data-submenu="menu02"  data-idx="2">
-                                    <img src="images/icon3_off.png"  alt="" />
-                                    <div class="title">관측 지점 정보</div>
-                                </a>
-                            </li>
-                            <li class="nav-item  ms-3">
-                                <a class="nav-link  text-white" href="javascript:void(0)"  data-toggle="off" data-submenu="menu03"  data-idx="3">
-                                    <img src="images/icon4_off.png"  alt="" />
-                                    <div class="title">관측 풍속 정보</div>
-                                </a>
-                            </li>
-                            <li class="nav-item  ms-3">
-                                <a class="nav-link  text-white" href="javascript:void(0)"  data-toggle="off"  data-submenu="menu04"  data-idx="4">
-                                    <img src="images/icon12_off.png"  alt="" />
-                                    <div class="title">ASOS 풍속 정보</div>
-                                </a>
-                            </li>
-                            <li class="nav-item  ms-3">
-                                <a class="nav-link  text-white" href="javascript:void(0)"  data-toggle="off" data-submenu="menu05"  data-idx="5">
-                                    <img src="images/icon22_off.png"  alt="" />
-                                    <div class="title">빌딩품 위험지도</div>
-                                </a>
-                            </li>
-                            <li class="nav-item  ms-3">
-                                <a class="nav-link  text-white" href="javascript:void(0)"  data-toggle="off" data-submenu="menu06"  data-idx="6">
-                                    <img src="images/test2_off.png"  alt="" />
-                                    <div class="title">실시간 풍속정보</div>
-                                </a>
-                            </li>
+                        
                         </ul>
                     </div>
-                </nav>
+            </nav>
 
         </header>
         
         
         <main>
-            <section>
-                
-            </section>
+            <section>       
+                <!-- ID 로그인 -->
+                 <div class="id_login_block">
+                     <div class="header" style="text-align:center;">
+                        <div>
+                            <h2>TITLE</h2>
+                        </div>
+                        <div>
+                            <span class="material-symbols-outlined" style="font-size:6rem;color:#2A76C7;">account_circle</span>
+                        </div>
+                     </div>
+                     <div class="body">    
+                        
+                         <form name="joinform" action="/login" method="post" onsubmit="return false">
+ 
+                             <div class="m-2 mb-3 insert-el-group">
+                               <input name="username" class="username">
+                               <div class="placeholder">INSERT USERNAME</div>
+                             </div>
+                             <div class="m-2 insert-el-group">
+                                 <input name="password" type="password"  class="password" >
+                                 <div class="placeholder">INSERT PASSWORD</div>
+                             </div>
+                             <div class="mt-3 ms-2 me-3 form-check" >   
+                                 <input type="checkbox" class="form-check-input" id="rememberMe" name="remember-me"  />
+                                 <label class="form-check-label" for="rememberMe" style="font-size:0.8rem;">로그인 상태를 유지</label>
+                             </div>
+                             <div x>
+                                 <button class="btn  w-100" style="background-color: #2A76C7;color:white;" onclick="isValid()">로그인</button>
+                             </div>
+ 
+                             <div class="m-2 join_req" >
+                             </div>
+ 
+                         </form>
+                     </div>
+ 
+                 </div>
+             </section>
         </main>
 
 
@@ -122,38 +281,7 @@
 
     </div>
 
-    <!-- --------------------------------------------
-       OFFCANVS 
-    -------------------------------------------- --> 
-    <a class="offcanvas_btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-      <img src="images/slide.png" />
-    </a>
-      <div class="offcanvas offcanvas-start" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header" >
-          <div class="offcanvas-title" id="offcanvasExampleLabel">제목</div>
-          <button type="button offcanvas_close_btn" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <div>
-             BODY
-          </div>
-          <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-       <!-- --------------------------------------------
-        MODAL_01
-       -------------------------------------------- --> 
- 
+  
 
     
 
