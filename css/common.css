@@ -172,7 +172,8 @@ body::-webkit-scrollbar{
 
 .wrapper>main>section>#map .leaflet-control-container{
     width : 50px;
-    ;    
+    top:5%;  
+    
 }
 .wrapper>main>section>#map  .leaflet-control-zoom{
     
@@ -182,6 +183,7 @@ body::-webkit-scrollbar{
     flex-direction: column;
     position:relative;
     left:90vw;
+
 }
 
 
