@@ -53,13 +53,15 @@ body::-webkit-scrollbar{
 
     
 }
-.wrapper>header>.top-header>.container-xxl{
+.wrapper>header>.top-header>div{
     height : 60px;
     display: flex;
     justify-content: space-between;
     align-items : center;
     color:white;
     font-size:1.2rem;
+    padding-left : 50px;
+    padding-right : 50px;
 }
 .wrapper>header>.top-header .left{
     text-align: left;
@@ -69,11 +71,11 @@ body::-webkit-scrollbar{
 
    
 }
-.wrapper>header>.top-header>.container-xxl>.left:nth-child(1){
+.wrapper>header>.top-header>div>.left:nth-child(1){
     width:50rem; 
     font-weight:800;  
 }
-.wrapper>header>.top-header>.container-xxl>.left:nth-child(2){
+.wrapper>header>.top-header>div>.left:nth-child(2){
      
 }
 
@@ -104,10 +106,14 @@ body::-webkit-scrollbar{
     background-color: #2A76C7;
 
 }
+.wrapper>header>nav>div{
+    padding-left:50px;
+}
+
 .wrapper>header>nav ul {
     
     margin : 0px;
-    padding : 0px;
+    padding : 10px;
     left : -10px;
    
 }
