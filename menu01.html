@@ -70,9 +70,7 @@
 
         // 팝업창 종료 전달
         window.addEventListener('unload',function(){
-            opener.document.querySelector('.popUpCloseResult').value="";
-            opener.document.querySelector('.popUpCloseResult').value="menu01_close";
-            
+            opener.postMessage("01", '*');
         })
     </script>
 </body>

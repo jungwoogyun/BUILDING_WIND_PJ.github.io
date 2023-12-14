@@ -68,8 +68,7 @@
    <script>
     // 팝업창 종료 전달
     window.addEventListener('unload',function(){
-        opener.document.querySelector('.popUpCloseResult').value="";
-        opener.document.querySelector('.popUpCloseResult').value="menu02_close";
+        opener.postMessage("02", '*');
     })
 </script>
 

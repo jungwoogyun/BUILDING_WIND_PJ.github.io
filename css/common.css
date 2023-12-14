@@ -164,10 +164,7 @@ body::-webkit-scrollbar{
  
     position:fixed;
     width:100vw;
-    height:800px;
-
-    
-    background-color: orange;
+    height:800px;    
 }
 
 .wrapper>main>section>#map .leaflet-control-container{
