@@ -44,9 +44,9 @@ nav_menu_img_items.forEach(item =>{
             {
               //팝업창 가운데로 맞추기
               var popupWidth = 1200;
-              var popupHeight = 800;
+              var popupHeight = 550;
               var popupX = (window.screen.width / 2) - (popupWidth / 2);
-              var popupY= (window.screen.height / 2) - (popupHeight / 2);
+              var popupY = (window.screen.height / 2) - (popupHeight / 2);
               //팝업창 활성화
               menuActiveArr[submenuIdx] =  window.open(submenuUrl+".html", '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
               isPopupOpend[submenuIdx] = true;
@@ -55,21 +55,35 @@ nav_menu_img_items.forEach(item =>{
             else if(submenuUrl.includes("01")||submenuUrl.includes("05"))
             {
               
-              //OFFCANVAS활성화
+              //OFFCANVAS 버튼 오른쪽이동
               const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
               if(!offcanvas_btn_el.classList.contains('ToRight')){
                   //OFFCANVAS BTN Move To RIGHT
                   offcanvas_btn_el.classList.add("ToRight");
               }
 
-              //
+              //OFFCANVAS SHOW
               const myOffcanvas = document.querySelector('.offcanvas')
               let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
               bsOffcanvas.show();
-            }
-            else if(submenuUrl.includes("05")){
+
+              //01MENU 클릭시 오픈캔버스에 내용표시 
+              if(submenuUrl.includes("01")){
+               
+                const buildingWindEl = document.querySelector('.buildingwind');
+                buildingWindEl.style.display='block';
+
+              }
+              //05MENU 클릭시 오픈캔버스에 내용표시 
+              if(submenuUrl.includes("05")){
+               
+                const buildingWindEl = document.querySelector('.dangerzone');
+                buildingWindEl.style.display='block';
+
+              }
 
             }
+           
 
         }
         else
@@ -109,6 +123,20 @@ nav_menu_img_items.forEach(item =>{
                 const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
                 bsOffcanvas.hide();
              
+              //01MENU 클릭시 오픈캔버스에 제거
+              if(submenuUrl.includes("01")){
+               
+                const buildingWindEl = document.querySelector('.buildingwind');
+                buildingWindEl.style.display='none';
+
+              }
+              //01MENU 클릭시 오픈캔버스에 제거
+              if(submenuUrl.includes("05")){
+               
+                const buildingWindEl = document.querySelector('.dangerzone');
+                buildingWindEl.style.display='none';
+
+              }
 
             }
            
