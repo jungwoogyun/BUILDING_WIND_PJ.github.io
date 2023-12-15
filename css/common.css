@@ -405,3 +405,8 @@ body::-webkit-scrollbar{
     height:250px;
     margin:0 auto;
 }
+
+/* MAP -- */
+.leaflet-control-zoom{
+   border : 0px !important;
+}

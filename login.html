@@ -91,7 +91,7 @@
             height:400px;
             padding : 20px;
             border : 1px solud gray;
-            margin : -150px auto;
+            margin : -200px auto;
             border-radius :5px;
             box-shadow : 5px 5px 5px 5px lightgray;
             background-color:white;
@@ -299,7 +299,110 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
     <!-- JS -->
-    <script src="js/common.js"></script>
+   
+    <script>
+        //-----------------------
+        //로그인 form input 스타일링
+        //-----------------------
+        document.addEventListener('click',function(e){
+            //console.log(e.target);
+            console.log(e.target.className);
+            if(e.target.className.includes('username') || e.target.className.includes('password'))
+            {
+                const siblingNode = e.target.nextSibling.nextSibling;
+                siblingNode.style.top = '-12px';
+                siblingNode.style.left = '10px';
+                siblingNode.style.color = '#2A76C7';
+                siblingNode.style.fontSize = '0.8rem';
+                siblingNode.style.fontWeight = '500';
+                siblingNode.style.backgroundColor='white';
+
+                const parentNode = e.target.parentNode;
+                parentNode.style.border='3px solid #2A76C7';
+                e.target.focus();
+            }
+            else if(e.target.className.includes('placeholder')){
+                e.target.style.top = '-12px';
+                e.target.style.left = '10px';
+                e.target.style.color = '#2A76C7';
+                e.target.style.fontSize = '0.8rem';
+                e.target.style.fontWeight = '500';
+                e.target.style.backgroundColor='white';
+                const parentNode = e.target.parentNode;
+                parentNode.style.border='3px solid #2A76C7';
+                const previousSiblingNode = e.target.previousSibling.previousSibling;
+                previousSiblingNode.focus();
+            }
+   
+            else if(e.target.tagName=='INPUT'||e.target.className.includes('form-check-label')){
+                    ;
+            }
+            else if(e.target.className.includes('id_login_block')||e.target.className.includes('form-check-input') ){
+                        ;
+            }
+            else{
+
+                    const insert_el_group_els =  document.querySelectorAll('.insert-el-group');
+                    insert_el_group_els.forEach(el=>{
+                    console.log(el);
+                    
+                    if(false) //ID/PW FORM을 벗어나지 않으면 상태유지 조건식 추가하기
+                    {
+                        ;
+                    }
+                    else
+                    {
+                            const children = el.children;
+                            children[0].value='';
+                            children[0].blur();
+                            el.style.border ='1px solid lightgray';
+                            children[1].style.top = '10px';
+                            children[1].style.left = '20px';
+                            children[1].style.color = '#2A76C7'      ;
+                            children[1].style.fontSize = '0.9rem';
+                            children[1].style.fontWeight = '500';
+                        }
+                    });
+
+            }
+
+
+        });
+
+
+        //-----------------------
+        //탭키눌렀을때(Focusing) 스타일
+        //-----------------------
+        const inputEls =  document.querySelectorAll('input');
+        inputEls.forEach(inputEl=>{
+            inputEl.addEventListener('keydown',function(event){
+                if (event.key === "Tab") {
+                       //console.log(event.target);
+                       if(event.target.className.includes('username')){
+                            const pwEl = document.querySelector('.password');
+                            const siblingNode = pwEl.nextSibling.nextSibling;
+                            siblingNode.style.top = '-12px';
+                            siblingNode.style.left = '10px';
+                            siblingNode.style.color = '#2A76C7';
+                            siblingNode.style.fontSize = '0.8rem';
+                            siblingNode.style.fontWeight = '500';
+                            siblingNode.style.backgroundColor='white';
+
+                            const parentNode = pwEl.parentNode;
+                            parentNode.style.border='3px solid #2A76C7';
+
+                       }
+                       console.log(event.target.tagName);
+                }
+
+
+            })
+        });
+
+
+
+
+    </script>
 
 </body>
 </html>
