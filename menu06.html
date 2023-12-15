@@ -27,7 +27,7 @@
 
 
     <!-- COMMON CSS -->
-    <link rel="stylesheet" href="css/common.css">
+    <!-- <link rel="stylesheet" href="css/common.css"> -->
     <!-- MENU06 CSS -->
     <link rel="stylesheet" href="css/menu06.css">
 </head>
@@ -36,22 +36,46 @@
     
     <div class="wrapper">
         <header>
-            <div class="top-header" style="height:0px;">
-               
-            </div>
-            <nav style="height:50px;">
-              
-            </nav>
+            <span>실시간 풍속 정보</span>
         </header>
         <main>
+            <section class="left">
+                <table class="table">
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    
+                </table>
 
+            </section>
+           
+      
         </main>
         <footer>
+            <div class="chartBlock">
+                <div class="left">
 
+                    <div id="chartdiv" ></div>  
+
+                </div>
+                <div class="right" id="chartdivRight" >
+                   
+                    
+                </div>
+            </div>
         </footer>
-
+       
     </div>
-
+      
 
 
    <!-- BS5  JS -->
@@ -64,8 +88,18 @@
    <!-- LEAFLET JS -->
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-   <!-- SWEETALERT JS -->
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+   <!-- AMCHART.JS -->
+   <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+   <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+   
+   
+   
+
+   <!-- MENU06 JS -->
+   <script src="js/menu06.js"></script>
 
    <!-- JS -->
    <script>
@@ -74,5 +108,12 @@
         opener.postMessage("06", '*');
     })
 </script>
+
+
+
+
+   
+
+
 </body>
 </html>
