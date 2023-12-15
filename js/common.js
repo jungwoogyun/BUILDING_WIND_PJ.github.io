@@ -44,7 +44,7 @@ nav_menu_img_items.forEach(item =>{
             {
               //팝업창 가운데로 맞추기
               var popupWidth = 1200;
-              var popupHeight = 700;
+              var popupHeight = 800;
               var popupX = (window.screen.width / 2) - (popupWidth / 2);
               var popupY = (window.screen.height / 2) - (popupHeight / 3);
               //팝업창 활성화
