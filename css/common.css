@@ -160,29 +160,7 @@ body::-webkit-scrollbar{
     height:800px;
 }
 
-.wrapper>main>section>#map{
- 
-    position:fixed;
-    width:100vw;
-    left:calc(-50vw + 50%);
-    height:800px;    
-}
 
-.wrapper>main>section>#map .leaflet-control-container{
-    width : 50px;
-    top:5%;  
-    
-}
-.wrapper>main>section>#map  .leaflet-control-zoom{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position:relative;
-    left:90vw;
-
-}
 
 
 /* FOOTER */
@@ -391,3 +369,39 @@ body::-webkit-scrollbar{
 
 
 
+/* MAP */
+.wrapper>main>section>#map{
+ 
+    position:fixed;
+    width:100vw;
+    left:calc(-50vw + 50%);
+    height:800px;    
+}
+
+.wrapper>main>section>#map .leaflet-control-container{
+    width : 50px;
+    top:5%;  
+    
+}
+.wrapper>main>section>#map  .leaflet-control-zoom{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position:relative;
+    left:90vw;
+
+}
+
+/* MAP MARKER */
+.leaflet-popup{
+
+  
+    width :300px;
+}
+.leaflet-popup-content-wrapper{
+    width : 250px ;
+    height:250px;
+    margin:0 auto;
+}

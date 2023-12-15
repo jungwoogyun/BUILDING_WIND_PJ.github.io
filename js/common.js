@@ -217,19 +217,42 @@ nav_menu_img_items.forEach(item =>{
 		attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
+
+
+
   	// 다중 마커를 추가하고 각 마커에 팝업 설정
 	var markers = [
 		{latlng: LCTlatlng, popupContent: 'LCT'},
 		{latlng: MARINElatlng, popupContent: '마린시티'},
     {latlng: CENTUMPARKlatlan, popupContent: '센텀파크'},
 	];
-  
+
+
 	markers.forEach(function(markerInfo) {
 		var marker = L.marker(markerInfo.latlng).addTo(map);
-		marker.bindPopup(markerInfo.popupContent);
+		
+    
+    // 빨간색 마커 추가 - 아직 적용 안됨..
+    var redMarker = L.marker(markerInfo.latlng, {
+      icon: L.icon({
+          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+      }, )
+    }).addTo(map);
+
+
+    redMarker.bindPopup(markerInfo.popupContent);
+  
 	});
 
-  // 클릭한 위치의 정보 업데이트 함수
+
+
+
+  // 클릭한 위치의 정보 업데이트 함수(아직구현 x)
 	function updateInfoPanel(latlng) {
 		// 클릭한 위치의 위도와 경도 업데이트
 		document.getElementById('latitude').textContent = latlng.lat.toFixed(6);
