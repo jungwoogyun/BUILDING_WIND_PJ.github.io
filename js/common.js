@@ -204,9 +204,13 @@ nav_menu_img_items.forEach(item =>{
 // MAP CODE  + SKYVIEW
 //--------------------------
 	// Leaflet 초기화
+
+  const LCTlatlng = [35.16073, 129.1688];
+  const MARINElatlng = [35.15541, 129.1460];
+  const CENTUMPARKlatlan = [35.17899, 129.1227];
   const laloArr = []; // 고정된 좌표값 넣기..
   
-	var map = L.map('map').setView([37.5729, 126.9794], 15);
+	var map = L.map('map').setView([35.166755,129.150615], 14); //가오비산 봉수대
 
   L.tileLayer('https://tiles.osm.kr/hot/{z}/{x}/{y}.png', {
 		maxZoom: 19,
@@ -215,8 +219,9 @@ nav_menu_img_items.forEach(item =>{
 
   	// 다중 마커를 추가하고 각 마커에 팝업 설정
 	var markers = [
-		{latlng: [37.5729, 126.9794], popupContent: '서울특별시 종로구'},
-		{latlng: [37.5631, 126.9829], popupContent: '경복궁'}
+		{latlng: LCTlatlng, popupContent: 'LCT'},
+		{latlng: MARINElatlng, popupContent: '마린시티'},
+    {latlng: CENTUMPARKlatlan, popupContent: '센텀파크'},
 	];
   
 	markers.forEach(function(markerInfo) {
@@ -224,23 +229,25 @@ nav_menu_img_items.forEach(item =>{
 		marker.bindPopup(markerInfo.popupContent);
 	});
 
-  	// 클릭한 위치의 정보 업데이트 함수
+  // 클릭한 위치의 정보 업데이트 함수
 	function updateInfoPanel(latlng) {
 		// 클릭한 위치의 위도와 경도 업데이트
 		document.getElementById('latitude').textContent = latlng.lat.toFixed(6);
 		document.getElementById('longitude').textContent = latlng.lng.toFixed(6);
 
-		// 클릭한 위치의 주소를 지오코딩을 통해 가져오기
+		// 클릭한 위치의 주소를 지오코딩을 통해 가져오기(나중에)
 		fetch('https://api.opencagedata.com/geocode/v1/json?q=' + latlng.lat + '+' + latlng.lng + '&key=YOUR_OPENCAGE_API_KEY')
 			.then(response => response.json())
 			.then(data => {
 				const address = data.results[0].formatted;
 				document.getElementById('address').textContent = address;
+        console.log('address',address);
 			})
 			.catch(error => {
 				console.error('Error fetching address:', error);
 			});
 	}
+
 
 	// 지도 클릭 이벤트 리스너
 	map.on('click', function (e) {
