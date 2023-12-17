@@ -115,6 +115,7 @@ body::-webkit-scrollbar{
     margin : 0px;
     padding : 10px;
     left : -10px;
+
    
 }
 .wrapper>header>nav ul li{
@@ -375,7 +376,7 @@ body::-webkit-scrollbar{
     position:fixed;
     width:100vw;
     left:calc(-50vw + 50%);
-    height:800px;    
+    height:100vh
 }
 
 .wrapper>main>section>#map .leaflet-control-container{
