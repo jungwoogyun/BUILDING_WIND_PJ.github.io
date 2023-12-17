@@ -16,25 +16,45 @@ const RightChart = ()=>{
         
         // Generate and set data
         // https://www.amcharts.com/docs/v5/charts/radar-chart/#Setting_data
-        var cat = -1;
-        var value = 10;
+ 
         
-        function generateData() {
-          value = Math.round(Math.random() * 10);
-          cat++;
-          return {
-            category: "cat" + cat,
-            value: value
-          };
-        }
-        
+ 
+
+      
         function generateDatas(count) {
-          cat = -1;
+          
+          
+   
+          // cat = -1;
+          // var data = [];
+          // for (var i = 0; i < count; ++i) {
+          //   data.push(generateData());
+          // }
+
           var data = [];
-          for (var i = 0; i < count; ++i) {
-            data.push(generateData());
-          }
+         
+            data.push({category : "N",value : 1});
+            data.push({category : "NNE",value : 2});
+            data.push({category : "NE",value : 3});
+            data.push({category : "ENE",value : 1});
+            data.push({category : "E",value : 2});
+            data.push({category : "ESE",value : 3});
+            data.push({category : "SE",value : 1});
+            data.push({category : "SSE",value : 2});
+            data.push({category : "S",value : 3});
+            data.push({category : "SSW",value : 1});
+            data.push({category : "SW",value :2});
+            data.push({category : "WSW",value : 3});
+            data.push({category : "W",value : 1});
+            data.push({category : "WNW",value : 2});
+            data.push({category : "NW",value : 3});
+            data.push({category : "NNW",value : 1});
+            data.push({category : "N",value : 2});
+
+         
           return data;
+
+
         }
         
         // Create chart
@@ -58,7 +78,7 @@ const RightChart = ()=>{
         // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_axes
         var xRenderer = am5radar.AxisRendererCircular.new(root, {});
         xRenderer.labels.template.setAll({
-          radius: 10
+          radius: 20
         });
         
         var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
@@ -74,10 +94,10 @@ const RightChart = ()=>{
         
         // Create series
         // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_series
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 1; i++) {
           var series = chart.series.push(am5radar.RadarColumnSeries.new(root, {
             stacked: true,
-            name: "Series " + i,
+            name: "풍속",
             xAxis: xAxis,
             yAxis: yAxis,
             valueYField: "value",
