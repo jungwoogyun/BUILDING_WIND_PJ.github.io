@@ -150,13 +150,13 @@ const LeftChart = ()=>{
               labels: ['0600', '0700', 'Day 3', 'Day 4', 'Day 5', 'Day 6'],
               fill: false,
               datasets: [{
-                  label: '풍속',
+                 label: '풍속',
                   data: [12, 19, 3, 5, 2, 3],
                   fill: false,
                   pointStyle:'circle',
                   borderColor: '#2A76C7',
                   pointRadius:10,
-                 
+                  
                 
               }]
           },
@@ -180,3 +180,72 @@ const LeftChart = ()=>{
 }
 
 LeftChart();
+
+
+//-----------------------------------------------
+// Parse the data from an inline table using the Highcharts Data plugin
+Highcharts.chart('container', {
+  data: {
+      table: 'freq',
+      startRow: 1,
+      endRow: 17,
+      endColumn: 7
+  },
+
+  chart: {
+      polar: true,
+      type: 'column'
+  },
+
+  title: {
+      text: 'Wind rose for South Shore Met Station, Oregon',
+      align: 'left'
+  },
+
+  subtitle: {
+      text: 'Source: or.water.usgs.gov',
+      align: 'left'
+  },
+
+  pane: {
+      size: '85%'
+  },
+
+  legend: {
+      align: 'right',
+      verticalAlign: 'top',
+      y: 100,
+      layout: 'vertical'
+  },
+
+  xAxis: {
+      tickmarkPlacement: 'on'
+  },
+
+  yAxis: {
+      min: 0,
+      endOnTick: false,
+      showLastLabel: true,
+      title: {
+          text: 'Frequency (%)'
+      },
+      labels: {
+          format: '{value}%'
+      },
+      reversedStacks: false
+  },
+
+  tooltip: {
+      valueSuffix: '%'
+  },
+
+  plotOptions: {
+      series: {
+          stacking: 'normal',
+          shadow: false,
+          groupPadding: 0,
+          pointPlacement: 'on'
+      }
+  }
+});
+

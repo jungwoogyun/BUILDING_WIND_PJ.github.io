@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+                var currentDate = new Date();
+
+var year = currentDate.getFullYear();
+var month = currentDate.getMonth() + 1; // 월은 0부터 시작하므로 1을 더합니다.
+var day = currentDate.getDate();
+
+// 월과 일이 한 자리 수일 경우 앞에 0을 붙입니다.
+month = month < 10 ? '0' + month : '' + month;
+day = day < 10 ? '0' + day : '' + day;
+
+var formattedDate = year + month + day;
+
+console.log(formattedDate);
+//실시간 풍향
+let realtimeVECIdx =["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"]
+let realtimeVECVal =[];
+
+//실시간 풍속
+let realtimeWSDIdx = [];
+let realtimeWSDVal = [];
+
+idx=0;
+axios.get(`/realTime`)
+            .then((res)=>{
+            console.log(res);
+            const data = res.data;
+            //console.log(data);
+            data.forEach(item=>{
+                console.log(item);
+                itemArr = item.body.response.body.items;
+                console.log(itemArr);
+                itemArr.item.forEach(arr =>{
+                    if(arr.category == 'VEC'){
+                        //console.log(arr.baseTime+":"+arr.category+":"+arr.obsrValue);
+                        realtimeVECVal.push(arr.obsrValue);
+
+                    }
+                    if(arr.category == 'WSD'){
+                        console.log(arr.baseTime+":"+arr.category+":"+arr.obsrValue);
+                        realtimeWSDIdx.push(arr.baseTime);
+                        realtimeWSDVal.push(arr.obsrValue);
+                    }
+                });
+            })
+
+            console.log(realtimeWSDIdx);
+            console.log(realtimeWSDVal);
+
+
+            //1초마다 올리기
+            idx=0;
+            var intervalId = setInterval(function(){
+
+
+                    //----------------
+                    //    left Chart
+                    //----------------
+                    var newDataPoint = {
+                        label:realtimeWSDIdx[idx],
+                        value:realtimeWSDVal[idx]
+                    };
+
+                    leftChart.data.labels.push(newDataPoint.label);
+                    leftChart.data.datasets[0].data.push(newDataPoint.value);
+                    leftChart.update();
+
+                    //----------------
+                    //    right Chart
+                    //----------------
+                    //풍향기호부터 구하기
+                    directionIdx =  parseInt( ( parseInt(realtimeVECVal[idx]) + 22.5 * 0.5)/22.5); //풍향문자 구하기
+                    console.log("realtimeVECVal[idx] : " + realtimeVECVal[idx]);
+                    console.log("directionIdx : " + directionIdx);
+                    console.log("realtimeVECIdx[directionIdx] : " +realtimeVECIdx[directionIdx]);
+
+
+                     const leftTableTrDirEls =    document.querySelectorAll("#freq .dir");
+                     leftTableTrDirEls.forEach(dir=>{
+
+
+                        if(dir.innerHTML == realtimeVECIdx[directionIdx]){
+                            console.log("DIR : " + dir.innerHTML);
+                            //const dataEl =  dir.nextSibling;
+                            //dataEl.innerHTML = realtimeWSDVal[idx];
+
+
+                                // 특정 행과 열의 데이터 업데이트
+                                rightChart.update({
+                                  data: {
+                                    table: 'freq',
+                                    updateRow: directionIdx+1, // 3행 (NE 풍향)의 데이터 업데이트
+                                    updateColumn: directionIdx, // 데이터 열의 데이터 값 업데이트
+                                    newValue: realtimeWSDVal[idx, // NE 풍향의 새 값
+                                  }
+                                });
+
+                            }
+                     });
+
+
+                    //----------------
+                    idx++;
+                    if(idx>=realtimeVECVal.length){
+                        clearInterval(intervalId);
+                    }
+
+            },2000);
+
+
+
+
+        })
+        .catch((err)=>{ console.log(err)});
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
