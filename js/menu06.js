@@ -1,8 +1,29 @@
+let dataArr = [
+  {category : "N",value : 0},
+  {category : "NNE",value : 0},
+  {category : "NE",value : 0},
+  {category : "ENE",value : 0},
+  {category : "E",value : 0},
+  {category : "ESE",value : 0},
+  {category : "SE",value : 0},
+  {category : "SSE",value : 0},
+  {category : "S",value : 0},
+  {category : "SSW",value : 0},
+  {category : "SW",value :0},
+  {category : "WSW",value : 0},
+  {category : "W",value : 0},
+  {category : "WNW",value : 0},
+  {category : "NW",value : 0},
+  {category : "NNW",value : 0},
+  {category : "N",value : 0}
+];
+
+
+var chart; // 차트 객체를 전역 변수로 선언
 
 
 // RIGHTCHART FUNCTION
-const RightChart = ()=>{
-    am5.ready(function() {
+  am5.ready(function() {
     
         // Create root element
         // https://www.amcharts.com/docs/v5/getting-started/#Root_element
@@ -21,45 +42,11 @@ const RightChart = ()=>{
  
 
       
-        function generateDatas(count) {
-          
-          
    
-          // cat = -1;
-          // var data = [];
-          // for (var i = 0; i < count; ++i) {
-          //   data.push(generateData());
-          // }
-
-          var data = [];
-         
-            data.push({category : "N",value : 1});
-            data.push({category : "NNE",value : 2});
-            data.push({category : "NE",value : 3});
-            data.push({category : "ENE",value : 1});
-            data.push({category : "E",value : 2});
-            data.push({category : "ESE",value : 3});
-            data.push({category : "SE",value : 1});
-            data.push({category : "SSE",value : 2});
-            data.push({category : "S",value : 3});
-            data.push({category : "SSW",value : 1});
-            data.push({category : "SW",value :2});
-            data.push({category : "WSW",value : 3});
-            data.push({category : "W",value : 1});
-            data.push({category : "WNW",value : 2});
-            data.push({category : "NW",value : 3});
-            data.push({category : "NNW",value : 1});
-            data.push({category : "N",value : 2});
-
-         
-          return data;
-
-
-        }
         
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/radar-chart/
-        var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+        chart = root.container.children.push(am5radar.RadarChart.new(root, {
           panX: false,
           panY: false,
           wheelX: "panX",
@@ -78,7 +65,8 @@ const RightChart = ()=>{
         // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_axes
         var xRenderer = am5radar.AxisRendererCircular.new(root, {});
         xRenderer.labels.template.setAll({
-          radius: 20
+          radius: 20,
+         
         });
         
         var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
@@ -87,7 +75,9 @@ const RightChart = ()=>{
           renderer: xRenderer,
           tooltip: am5.Tooltip.new(root, {})
         }));
-        
+
+      
+
         var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
           renderer: am5radar.AxisRendererRadial.new(root, {})
         }));
@@ -108,28 +98,45 @@ const RightChart = ()=>{
             tooltipText: "{name}: {valueY}"
           });
         
-          series.data.setAll(generateDatas(8));
+          series.data.setAll(dataArr);
           
           series.appear(1000);
         }
         
         // Add scrollbars
-        //chart.set("scrollbarX", am5.Scrollbar.new(root, { orientation: "horizontal" }));
-        //chart.set("scrollbarY", am5.Scrollbar.new(root, { orientation: "vertical" }));
+      
         
-        var data = generateDatas(8);
-        xAxis.data.setAll(data);
+       
+        xAxis.data.setAll(dataArr);
         
         // Animate chart
         // https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
         chart.appear(1000, 100);
         
-        }); // end am5.ready()
-}
 
-// RIGHT CHART 실행
-RightChart();
+ }); // end am5.ready()
 
+
+ setInterval(function () {
+  // 데이터 업데이트 로직 추가
+  // 여기에 데이터 업데이트 로직을 추가하고, 업데이트된 데이터를 dataArr에 할당
+  // 예: dataArr[0].value = updatedValue;
+  //     dataArr[1].value = updatedValue;
+  //     ...
+
+  // 데이터 업데이트 후 차트 갱신
+  if (chart) {
+    chart.series.each(function (series) {
+      dataArr.forEach(obj =>{
+        if(obj.category=="N")
+          obj.value++;
+
+      });
+      series.data.setAll(dataArr);
+    });
+  }
+}, 1000); // 1초마다 업데이트   
+ 
 
 
 // LEFT CHART 
