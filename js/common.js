@@ -214,7 +214,17 @@ const CENTUMPARKlatlan = [35.17899, 129.1227];
 
 //  /var map = L.map('map').setView([35.166755,129.150615], 14); //가오비산 봉수대
 
-var map = L.map('map').setView([35.16073, 129.1688], 15); //LCT ,14기본값
+//지도 유동적으로 움직임
+//var map = L.map('map').setView([35.16073, 129.1688], 15); //LCT ,14기본값
+
+//지도 고정하기
+var map = L.map('map', {
+  center: [35.16073, 129.1688],
+  zoom: 15,
+  dragging: false // 드래그 비활성화
+});
+
+
 //-----------
 //기본지도
 //-----------
@@ -263,8 +273,8 @@ var markers = [
 var pointerIcon = L.icon({
   iconUrl: '/images/pointer.png',
   iconSize: [8, 8], // 아이콘 크기 설정
-  iconAnchor: [16, 32], // 아이콘의 앵커 지점 설정
-  popupAnchor: [0, -32] // 팝업의 앵커 지점 설정
+  iconAnchor: [4,4], // 아이콘의 앵커 지점 설정
+  popupAnchor: [0, -4] // 팝업의 앵커 지점 설정
 });
 
 
@@ -290,15 +300,27 @@ var pointerIcon = L.icon({
 
 
 
-//LCT 영역표시(GREEN)
-var polygonPoints=[];
+//LCT 영역표시(TEST)
+//var polygonPoints=[];
+
+let polygonPoints = [
+[35.17020922812061, 129.1655278941384],
+[35.170244294734106, 129.181584953562],
+[35.15531177766376, 129.1810427077756],
+[35.15756153660301, 129.1751054362744],
+[35.15856153660301, 129.1721054362744],
+[35.15826153660301, 129.16552723575453],
+[35.16605317098005, 129.16554175660595],
+]
+
 const createLCTSection =() =>{
 
      // 경계를 이용해 다각형을 만들고 원하는 색상을 설정합니다.
-     var polygon = L.polygon(polygonPoints, { color: '', fillColor: 'green', fillOpacity: 0.3 }).addTo(map);
+     var polygon = L.polygon(polygonPoints, { color: '', fillColor: 'green', fillOpacity: 0.3 ,}).addTo(map);
 
-
-
+     map.fitBounds(polygon.getBounds());
+    
+    
      // 다른 영역에 대해서도 동일한 방식으로 처리할 수 있습니다.
     //  var polygon2Points = [];
     //  var polygon2 = L.polygon(polygon2Points, { color: 'blue', fillColor: 'blue', fillOpacity: 0.5 }).addTo(map);
@@ -308,11 +330,11 @@ const createLCTSection =() =>{
     //  ];
     //  var polygon3 = L.polygon(polygon3Points, { color: 'green', fillColor: 'red', fillOpacity: 0.5 }).addTo(map);
      //영역 고정
-    //map.setView([35.16061302338314 ,  129.1687917709351],15);
-
+  
+    
 }
 
-
+createLCTSection();
 
 
 //------------------------------
@@ -332,7 +354,7 @@ map.on('click', function (e) {
       
     // 클릭한 위치의 좌표를 polygonPoints 배열에 추가
  
-      polygonPoints.push([e.latlng.lat, e.latlng.lng]);
+      polygonPoints.push([e.latlng.lat, e.latlng.lng ]);
       console.log(polygonPoints);
 
         //좌표점이 10개이상 채워지면 지도에 영역표시하기..
