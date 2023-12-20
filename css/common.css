@@ -402,8 +402,8 @@ body::-webkit-scrollbar{
 }
 .section01 .youtubeBlk {
     position:absolute;
-    left:30vw;
-    top:70vh;
+    left:20vw;
+    top:75vh;
 
 }
 .section01 .youtubeBlk .wrapper .videoblock{
@@ -412,6 +412,9 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  
+  
+
 
 }
 
