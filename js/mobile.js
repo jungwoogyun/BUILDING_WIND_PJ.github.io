@@ -7,14 +7,21 @@
         modalEls.forEach((modal)=>{
             modal.classList.remove('modal-xl');
             modal.classList.remove('modal-fullsize');
-
+            
+            modal.classList.add('modal-fullscreen-sm-down');
+            
         })
 
       
     } else {
       // 브라우저 크기가 600px 이상이면 메시지를 숨김
-      modal.classList.add('modal-xl');
-      modal.classList.add('modal-fullsize');
+      modalEls.forEach((modal)=>{
+        modal.classList.add('modal-xl');
+        modal.classList.add('modal-fullsize');
+
+        modal.classList.remove('modal-fullscreen-sm-down');
+        })
+    
     }
   }
 

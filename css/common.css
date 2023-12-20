@@ -47,7 +47,7 @@ body::-webkit-scrollbar{
     width:100%;
     
     background-color: white;
-    z-index : 555;
+    z-index : 999;
 }
 
 .wrapper>header>.top-header{

@@ -468,7 +468,11 @@ body::-webkit-scrollbar{
     background-color: rgb(38, 149, 42) ;
 }
 
+.modal{
+    height : 350px;
+    margin-top : 25vh
+}
 .modal iframe{
     width : 500px;
-    height : 300px;
+    height : 350px;
 }

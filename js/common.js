@@ -33,7 +33,7 @@ nav_menu_img_items.forEach(item => {
         //
         const submenuUrl = item.getAttribute('data-submenu');
         const submenuIdx = item.getAttribute('data-idx');
-        if (submenuUrl.includes("02")  || submenuUrl.includes("04") || submenuUrl.includes("06")) {
+        if (submenuUrl.includes("02") || submenuUrl.includes("04")) {
             //팝업창 가운데로 맞추기
             var popupWidth = 800;
             var popupHeight = 600;
@@ -133,6 +133,57 @@ nav_menu_img_items.forEach(item => {
                 }
 
             })
+
+            //실시간 풍속 정보를 클릭했을때
+        } else if (submenuUrl.includes("06")) {
+            //
+            const sectionEls = document.querySelectorAll('main section');
+            sectionEls.forEach(sec => {
+                sec.style.display = 'none';
+                if (sec.classList.contains('section06')) {
+                    sec.style.display = "block";
+
+                }
+
+                
+            })
+
+            //---------------------------
+            // 그래프 표시하기
+            //---------------------------
+
+
+
+
+
+            //---------------------------
+            // 이전꺼 지우기
+            //---------------------------
+
+            //팝업여부배열 false
+            isPopupOpend[submenuIdx] = false;
+
+            //OFFCANVAS BTN 비활성화
+            const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
+            if (offcanvas_btn_el.classList.contains('ToRight')) {
+                //OFFCANVAS Move To RIGHT
+                offcanvas_btn_el
+                    .classList
+                    .remove("ToRight");
+
+            }
+            //OFFCANVAS 숨기기
+            const myOffcanvas = document.querySelector('.offcanvas')
+            myOffcanvas
+                .classList
+                .remove('show');
+            const bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+            bsOffcanvas.hide();
+            //
+            const buildingDangerFixedBlockEl = document.querySelector(
+                '.buildingDangerFixedBlock'
+            );
+            buildingDangerFixedBlockEl.style.display = 'none';
 
         }
 
