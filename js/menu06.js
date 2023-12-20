@@ -93,7 +93,7 @@ const rightChart =()=>{
 
       yAxis: {
           min: 0,
-          max: 3,
+          max: 5,
           endOnTick: false,
           showLastLabel: true,
           title: {

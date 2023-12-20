@@ -287,7 +287,10 @@ nav_menu_img_items.forEach(item => {
 // --------------------------
 // MAP CODE  + SKYVIEW
 // --------------------------
-// Leaflet 초기화
+
+
+
+
 
 const createMap = () => {
 
@@ -314,6 +317,7 @@ const createMap = () => {
     // -----------
     //위성지도
     // -----------
+
 
     // 다중 마커를 추가하고 각 마커에 팝업 설정
     var markers = [
@@ -365,13 +369,9 @@ const createMap = () => {
     // 포인터를 위한 사용자 지정 아이콘 정의
     var pointerIcon = L.icon({
         iconUrl: '/images/pointer.png',
-        iconSize: [
-            8, 8
-        ], // 아이콘 크기 설정
-        iconAnchor: [
-            16, 32
-        ], // 아이콘의 앵커 지점 설정
-        popupAnchor: [0, -32] // 팝업의 앵커 지점 설정
+        iconSize: [16, 16],     // 아이콘 크기 설정
+        iconAnchor: [8, 8],     // 아이콘의 앵커 지점을 이미지의 중앙으로 설정
+        popupAnchor: [0, -16]   // 팝업의 앵커 지점 설정
     });
 
     // 클릭한 위치의 정보 업데이트 함수(아직구현 x) function updateInfoPanel(latlng) { 	  클릭한 위치의 위도와
@@ -429,8 +429,13 @@ const createMap = () => {
         console.log(e.target);
         //클릭한 지점의 위도 경도 표시
         console.log('lat :', e.latlng.lat, 'lan : ', e.latlng.lng);
-        polygonPoints.unshift([e.latlng.lat, e.latlng.lng]);
+
+        polygonPoints.push([e.latlng.lat, e.latlng.lng] );
+        
         console.log(polygonPoints);
+       
+
+
 
         // 사용자 지정 아이콘을 사용하여 사용자 지정 마커 생성
         var customMarker = L
