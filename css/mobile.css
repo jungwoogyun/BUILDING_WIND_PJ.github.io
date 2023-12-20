@@ -59,9 +59,9 @@ body::-webkit-scrollbar{
     justify-content: space-between;
     align-items : center;
     color:white;
-    font-size:1.2rem;
-    padding-left : 50px;
-    padding-right : 50px;
+    font-size:0.8rem;
+    padding-left : 0px;
+    padding-right :0px;
 }
 .wrapper>header>.top-header .left{
     text-align: left;
@@ -97,7 +97,7 @@ body::-webkit-scrollbar{
 .wrapper>header>nav{
     
     width:100vw;
-    height : 80px;
+    height : 85px;
     padding : 0px;
     overflow:hidden;
     background-color: #2A76C7;
@@ -112,7 +112,7 @@ body::-webkit-scrollbar{
 
 .wrapper>header>nav ul {
     
-    margin-left:-25px;
+    margin-left:-35px;
     padding : 0px;
   
 
@@ -130,7 +130,7 @@ body::-webkit-scrollbar{
     width : 60px;
     height : 50px;
    
-    border : 2px solid white;
+    border : 1px solid white;
     background-color: #1D5087;
     
     display:flex;
@@ -139,6 +139,7 @@ body::-webkit-scrollbar{
     text-align: center;
     cursor: pointer;
     transition: 0.4s;
+    
 }
 .wrapper>header>nav ul li a{
     display :flex;
@@ -439,8 +440,8 @@ body::-webkit-scrollbar{
 }
 
 .section01 .youtubeBlk .wrapper .videoblock div{
-    width : 150px;
-    height : 150px;
+    width : 120px;
+    height : 120px;
     border : 1px solid lightgray;
     
  
