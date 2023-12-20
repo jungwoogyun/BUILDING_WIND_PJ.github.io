@@ -134,15 +134,17 @@ nav_menu_img_items.forEach(item => {
 
             })
 
-            //실시간 풍속 정보를 클릭했을때
+        //-------------------------------------
+        //실시간 풍속 정보를 클릭했을때
+        //-------------------------------------
         } else if (submenuUrl.includes("06")) {
             //
+            console.log("menu06!!!");
             const sectionEls = document.querySelectorAll('main section');
             sectionEls.forEach(sec => {
                 sec.style.display = 'none';
                 if (sec.classList.contains('section06')) {
                     sec.style.display = "block";
-
                 }
 
                 
@@ -151,6 +153,11 @@ nav_menu_img_items.forEach(item => {
             //---------------------------
             // 그래프 표시하기
             //---------------------------
+            
+
+
+
+
 
 
 
@@ -195,27 +202,27 @@ nav_menu_img_items.forEach(item => {
 // POP Close Event Function ( X 버튼 눌렀을때 부모창 메뉴 스타일변경)
 // --------------------------
 // 부모 창에서 메시지를 받는 이벤트 리스너 등록
-window.addEventListener('message', function (event) {
-    // event.data에 자식 창에서 전달한 데이터가 들어 있음
-    const receivedMessage = event.data;
-    //console.log('자식 창으로부터 받은 메시지:', receivedMessage);
+// window.addEventListener('message', function (event) {
+//     // event.data에 자식 창에서 전달한 데이터가 들어 있음
+//     const receivedMessage = event.data;
+//     //console.log('자식 창으로부터 받은 메시지:', receivedMessage);
 
-    //
-    const nav_menu_img_items = document.querySelectorAll('nav li>a');
-    nav_menu_img_items.forEach(item => {
-        const submenuUrl = item.getAttribute('data-submenu');
-        if (submenuUrl.includes(receivedMessage)) {
-            item.setAttribute("data-toggle", "off");
-            const imgEl = item.firstElementChild;
-            let str = imgEl.getAttribute('src');
-            if (!str.includes('_off')) 
-                str = str.substring(0, str.indexOf('.')) + "_off.png";
-            imgEl.setAttribute('src', str);
-        }
+//     //
+//     const nav_menu_img_items = document.querySelectorAll('nav li>a');
+//     nav_menu_img_items.forEach(item => {
+//         const submenuUrl = item.getAttribute('data-submenu');
+//         if (submenuUrl.includes(receivedMessage)) {
+//             item.setAttribute("data-toggle", "off");
+//             const imgEl = item.firstElementChild;
+//             let str = imgEl.getAttribute('src');
+//             if (!str.includes('_off')) 
+//                 str = str.substring(0, str.indexOf('.')) + "_off.png";
+//             imgEl.setAttribute('src', str);
+//         }
 
-    });
+//     });
 
-});
+// });
 
 // --------------------------
 // MAP CODE  + SKYVIEW

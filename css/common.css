@@ -159,7 +159,7 @@ body::-webkit-scrollbar{
 .wrapper>main{
   
     margin-top :130px;
-    
+
 
 }
 .wrapper>main>section{
@@ -174,10 +174,7 @@ body::-webkit-scrollbar{
 
 .wrapper>main>section:nth-child(1){
    display:block;
-  
-   
    width:100vw;
-
 
 }
 .wrapper>main>section:nth-child(1) video{
@@ -458,4 +455,45 @@ body::-webkit-scrollbar{
 .modal iframe{
     width : 100%;
     height : 100%;
+}
+
+
+.section02 .left{
+    height : 800px;
+    z-index:999;
+}
+
+
+
+.section06{
+    width : 100vw;
+    height : 100vh;
+    background-color: orange;
+    
+    display:flex;
+    justify-content: center;
+  
+}
+.section06>.left
+{
+   
+    top:100px;
+    width : 50rem;
+    height : 40rem;
+    background-color : red;
+    margin : 10px;
+    left:4vw;
+
+}
+
+.section06>.right
+{
+
+    width : 50rem;
+    height : 40rem;
+    background-color : blue;
+    margin : 10px;
+    left:50vw;
+    top:-28.7vw;
+    
 }
