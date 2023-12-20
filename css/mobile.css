@@ -112,22 +112,26 @@ body::-webkit-scrollbar{
 
 .wrapper>header>nav ul {
     
-    margin-left:-35px;
+    margin : 0px;
     padding : 0px;
   
 
     display:flex;
 
     
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
+    /* border : 1px solid green; */
+    width : 100vw;
+    left:-13vw;
+    margin : 0 auto;
     
 
 }
 .wrapper>header>nav ul li{
     
-    width : 60px;
+    width : 55px;
     height : 50px;
    
     border : 1px solid white;
@@ -410,20 +414,18 @@ body::-webkit-scrollbar{
 }
 
 
-.section01 .youtubeBlk .wrapper{
-    width:100%;
-
-
-}
 
 .section01 .youtubeBlk {
  /* border : 2px solid lightgray; */
- margin-left:-120px;
- top:266px;  
- width : 100vw;
+
+ top:270px;  
+ left:0;
+
  
 }
 .section01 .youtubeBlk .wrapper{
+
+    position:relative;
 
 }
 .section01 .youtubeBlk .wrapper .videoblock{
@@ -434,9 +436,10 @@ body::-webkit-scrollbar{
   flex-direction: row;
 
   height:400px;  
-  width : 100vw;
+  
   margin : 0 auto;
-  margin-left:10vw;
+  /* border : 1px solid orange; */
+  
 }
 
 .section01 .youtubeBlk .wrapper .videoblock div{
@@ -477,6 +480,33 @@ body::-webkit-scrollbar{
     width : 500px;
     height : 350px;
 }
+    /* 모달창 Style */
+    .modal-dialog.modal-xl {
+        position:relative;
+        top:80px;
+        width:1200px;
+        height: 700px;
+  
+    }
+    .modal-dialog .modal-body{
+        height:500px;
+    }
+
+    .modal-body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .modal-body>div{
+        width : 400px;
+        height: 100%;
+        border : 1px solid gray;
+        border-radius: 15px;
+        margin:10px;
+        padding : 10px;
+        text-align: center;
+    }
+
 
 
 
