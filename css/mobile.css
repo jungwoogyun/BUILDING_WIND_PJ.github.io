@@ -540,6 +540,7 @@ body::-webkit-scrollbar{
    display:block;
    position: relative;  
    top:0;bottom:0;left:0;right:0;
+   
    border-bottom : 1px solid lightgray;
    width : 100% !important;
    height : 160px !important;
@@ -559,9 +560,12 @@ body::-webkit-scrollbar{
 
     display:block !important;
     position:relative !important;
+    margin : 0 auto;
+
+    
 }
 canvas#leftChart{
-    width :250px;
+  
 
 }
 
