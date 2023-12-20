@@ -451,3 +451,8 @@ body::-webkit-scrollbar{
 .section01 .youtubeBlk .wrapper .videoblock div .material-symbols-outlined.naver{
     background-color: rgb(38, 149, 42) ;
 }
+
+.modal iframe{
+    width : 100%;
+    height : 100%;
+}
