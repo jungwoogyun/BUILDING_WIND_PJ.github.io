@@ -22,7 +22,8 @@ offcanvas_btn_el.addEventListener('click', function () {
 let menuActiveArr = []; //활성 팝업객체 저장
 let isPopupOpend = []; //활성 팝업여부 표시
 let intervalid=null;
-
+let menu02clickInit=true;   //SETINTERㄴVAL 삭제를 위해코드를 추가했건만... 처음 menu06로 진입할때
+                            //leftchart 가 안떠서 그거 해결한다고 추가함..
 const nav_menu_img_items = document.querySelectorAll('nav li>a');
 nav_menu_img_items.forEach(item => {
 
@@ -141,13 +142,14 @@ nav_menu_img_items.forEach(item => {
             //---------------------------
             console.log("btn clicked intervalId : ",intervalId);
             //기존 동작하는 Interval 있으면 
-            if(intervalId!=null){
+            if(intervalId!=null || menu02clickInit==true){
+                menu02clickInit=false;
                 clearInterval(intervalId); //interval 제거
                 console.log("interval removed...interval : ",intervalId);
                 //-------------------------
                 //left chart지우기(안지워짐..)
                 //-------------------------
-                leftChart.destroy();
+                
 
                 const leftChartParentEl = document.querySelector('.chartBlock>.left');
                 const oldChart = document.querySelector('.chartBlock>.left>#leftChart');
