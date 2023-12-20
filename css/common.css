@@ -493,7 +493,7 @@ body::-webkit-scrollbar{
 {
 
     width : 60vw;
-    height :  40vh;
+    height : 30vh;
  
     margin : 10px;
     left:35vw;
@@ -503,10 +503,18 @@ body::-webkit-scrollbar{
 }
 
 
+.section06>.right>.tbl_block{
+
+    overflow:auto;height:30vh;
+}
+
+
 .section06>.right>.chartBlock{
     display:flex;
     justify-content: center;
     align-items: center;
+    margin-top:10px;
+    top:-1.5vw;
     margin-top:10px;
 }
 
@@ -516,7 +524,7 @@ body::-webkit-scrollbar{
     height:100%;
 }
 .section06>.right>.chartBlock>.left>#leftChart{
-    width : 100%;
+  
 }
 .section06>.right>.chartBlock>.left{
     width:200px;
@@ -526,9 +534,13 @@ body::-webkit-scrollbar{
     align-items: center;
     flex-direction: column;
 }
+.section06>.right>.chartBlock>.right{
+display:flex;justify-content: center;
+align-items: center;margin:0 auto;
+}
 
-/* chart */
-/* #chartdiv {
-    width: 100%;
-    height: 400px;
-  } 
+th,td{
+    width:100px;
+    text-align:center;
+}
+  
