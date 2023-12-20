@@ -33,7 +33,7 @@ nav_menu_img_items.forEach(item => {
         //
         const submenuUrl = item.getAttribute('data-submenu');
         const submenuIdx = item.getAttribute('data-idx');
-        if (submenuUrl.includes("02") || submenuUrl.includes("03") || submenuUrl.includes("04") || submenuUrl.includes("06")) {
+        if (submenuUrl.includes("02")  || submenuUrl.includes("04") || submenuUrl.includes("06")) {
             //팝업창 가운데로 맞추기
             var popupWidth = 800;
             var popupHeight = 600;
