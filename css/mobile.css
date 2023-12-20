@@ -418,7 +418,7 @@ body::-webkit-scrollbar{
 }
 
 .section01 .youtubeBlk {
- border : 2px solid lightgray;
+ /* border : 2px solid lightgray; */
  margin-left:-120px;
  top:266px;  
  width : 100vw;
