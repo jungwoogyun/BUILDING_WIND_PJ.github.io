@@ -568,17 +568,18 @@ canvas#leftChart{
     margin:0 auto;
     position:relative;
     top: 35px;
-    width : 120px;
-    height : 120px;
+    width : 200px;
+    height : 200px;
 
     /* border : 1px solid blue; */
     z-index:-1;
-
+     
 }
 .section06>.right>.chartBlock>.right  .container{
     position: relative;
-    width : 150px;
-    height : 150px;
+    width : 200px;
+    height : 200px;
+
     /* border : 1px solid blue; */
 }
 

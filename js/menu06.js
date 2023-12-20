@@ -8,7 +8,7 @@ var leftConfig = {
           labels: [''],
           fill: false,
           datasets: [{
-              label: '',
+              label: '풍속 ',
               data: [''],
               fill: false,
               pointStyle:'circle',
@@ -24,7 +24,7 @@ var leftConfig = {
           plugins: {
           title: {
               display: true,
-              text: '실시간 풍속변화(m/s)',
+              text: ' 실시간 풍속변화(m/s)',
               align: 'start',
               color: '#2A76C7',
               },
@@ -113,7 +113,7 @@ const rightChart =()=>{
           series: {
               stacking: 'normal',
               shadow: false,
-              groupPadding:0,
+              groupPadding:1,
               pointPlacement: 'on',
               showInLegend: false,
           },
