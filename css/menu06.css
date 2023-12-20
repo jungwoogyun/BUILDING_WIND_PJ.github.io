@@ -42,19 +42,19 @@ body::-webkit-scrollbar{
 .wrapper>footer{
     border-top : 1px solid lightgray;
 }
-.wrapper>footer>.chartBlock{
+.wrapper >.chartBlock{
     height:400px;
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
-.wrapper>footer>.chartBlock>.left{
+.wrapper >.chartBlock>.left{
     width : 100%;
     height : 100%;
     border-right : 1px solid lightgray;
    
 }
-.wrapper>footer>.chartBlock>.right{
+.wrapper >.chartBlock>.right{
     width:400px;
     height : 100%;
 }

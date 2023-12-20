@@ -28,7 +28,6 @@ nav_menu_img_items.forEach(item => {
     item.addEventListener('click', function () {
         const isOpened = item.getAttribute('data-toggle');
 
-        console.log("!!", isOpened);
 
         //
         const submenuUrl = item.getAttribute('data-submenu');
@@ -387,3 +386,9 @@ const createMap = () => {
     });
 
 }
+
+
+//-------------------------------------------------
+//
+//
+//-------------------------------------------------
