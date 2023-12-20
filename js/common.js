@@ -84,57 +84,55 @@ nav_menu_img_items.forEach(item => {
             );
             buildingDangerFixedBlockEl.style.display = 'none';
 
-
-
         } else if (submenuUrl.includes("05")) {
 
             //OFFCANVAS 버튼 오른쪽이동
-           
-            
 
+            const windowWidth = window.innerWidth;
 
-            const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
-            if (!offcanvas_btn_el.classList.contains('ToRight')) {
-                //OFFCANVAS BTN Move To RIGHT
-                offcanvas_btn_el
-                    .classList
-                    .add("ToRight");
+            if (windowWidth > 500) {
+                const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
+                if (!offcanvas_btn_el.classList.contains('ToRight')) {
+                    //OFFCANVAS BTN Move To RIGHT
+                    offcanvas_btn_el
+                        .classList
+                        .add("ToRight");
+                }
+
+                //OFFCANVAS SHOW
+                const myOffcanvas = document.querySelector('.offcanvas')
+                let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+                bsOffcanvas.show();
+                //05MENU 클릭시 오픈캔버스에 내용표시
+                if (submenuUrl.includes("05")) {
+
+                    const buildingWindEl = document.querySelector('.dangerzone');
+                    buildingWindEl.style.display = 'block';
+
+                    const buildingDangerFixedBlockEl = document.querySelector(
+                        '.buildingDangerFixedBlock'
+                    );
+                    buildingDangerFixedBlockEl.style.display = 'block';
+
+                }
             }
 
+            //
+            const sectionEls = document.querySelectorAll('main section');
+            sectionEls.forEach(sec => {
+                sec.style.display = 'none';
+                if (sec.classList.contains('section03')) {
+                    sec.style.display = "block";
+                    document
+                        .querySelector('#map')
+                        .remove();
+                    const mapEl = document.createElement('div');
+                    mapEl.setAttribute('id', 'map');
+                    sec.appendChild(mapEl);
+                    createMap();
+                }
 
-
-            //OFFCANVAS SHOW
-            const myOffcanvas = document.querySelector('.offcanvas')
-            let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
-            bsOffcanvas.show();
-
-            //05MENU 클릭시 오픈캔버스에 내용표시
-            if (submenuUrl.includes("05")) {
-
-                const buildingWindEl = document.querySelector('.dangerzone');
-                buildingWindEl.style.display = 'block';
-
-                const buildingDangerFixedBlockEl = document.querySelector(
-                    '.buildingDangerFixedBlock'
-                );
-                buildingDangerFixedBlockEl.style.display = 'block';
-
-                //
-                const sectionEls = document.querySelectorAll('main section');
-                sectionEls.forEach(sec => {
-                    sec.style.display = 'none';
-                    if (sec.classList.contains('section03')) {
-                        sec.style.display = "block";
-                        document.querySelector('#map').remove();
-                        const mapEl = document.createElement('div');
-                        mapEl.setAttribute('id', 'map');
-                        sec.appendChild(mapEl);
-                        createMap();
-                    }
-
-                })
-
-            }
+            })
 
         }
 
@@ -331,4 +329,3 @@ const createMap = () => {
     });
 
 }
-
