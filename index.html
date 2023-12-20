@@ -171,7 +171,16 @@
                     <div class="hrtg">
                         빌딩풍
                     </div>
-                    
+                    <div class="youtubeBlk" >
+                        <div class="wrapper" >
+                            <div class="videoblock">
+                                <div><a href="javascript:void(0)" class="main-banner-btn" data-bs-toggle="modal" data-bs-target="#exampleModal2"><span class="material-symbols-outlined">play_arrow</span></a></div>
+                                <div><a href="javascript:void(0)" class="main-banner-btn" data-bs-toggle="modal" data-bs-target="#exampleModal4"><span class="material-symbols-outlined">play_arrow</span></a></div>
+                                <div><a href="javascript:void(0)" class="main-banner-btn" data-bs-toggle="modal" data-bs-target="#exampleModal3"><span class="material-symbols-outlined naver">play_arrow</span></a></div>
+                                <div><a href="javascript:void(0)" class="main-banner-btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"><span class="material-symbols-outlined">play_arrow</span></a>
+                                </div>
+                        </div>                      
+                    </div>
                 </section>
 
                 <section class="section02 ">
@@ -188,6 +197,161 @@
             <footer></footer>
 
         </div>
+
+        <!-- MODALS -->
+        <!-- Top-header site Menu Modal -->
+<style>
+    /* 모달창 Style */
+    .modal-dialog.modal-xl {
+        position:relative;
+        top:80px;
+        width:1200px;
+        height: 700px;
+  
+    }
+    .modal-dialog .modal-body{
+        height:700px;
+    }
+
+    .modal-body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .modal-body>div{
+        width : 400px;
+        height: 100%;
+        border : 1px solid gray;
+        border-radius: 15px;
+        margin:10px;
+        padding : 10px;
+        text-align: center;
+    }
+</style>
+
+<!--  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullsize" >
+      <div class="modal-content">
+        <div class="modal-header"> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <div><h3>TOP-MENU</h3></div>
+            </div>
+            <div>
+                <div><h3>TOP-MENU</h3></div>
+            </div>
+            <div>
+                <div><h3>TOP-MENU</h3></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main banner Video Modal -->
+
+        <!-- 모달 1 퍼가기 금지..다른방법으로 띄우기-->
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullsize" >
+            <div class="modal-content">
+                <div class="modal-header"> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/lgfJG3IcMpg?si=QlID5GhJvAe7eyDW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <style>
+                    #exampleModal2 .modal-footer{
+                        height:50px;
+                        border-top:1px solid lightgray;
+                    }
+                </style>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--  모달 2 ok-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullsize" >
+            <div class="modal-content">
+                <div class="modal-header"> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/20__7wr_nwQ?si=zbzU5iGbnRbm5usU&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <style>
+                    #exampleModal2 .modal-footer{
+                        height:50px;
+                        border-top:1px solid lightgray;
+                    }
+                </style>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--  모달 3 네이버전체창이 나옴.. 동영상만 따로..-->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullsize" >
+            <div class="modal-content">
+                <div class="modal-header"> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="100%" src="https://tv.naver.com/v/15691656" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <style>
+                    #exampleModal2 .modal-footer{
+                        height:50px;
+                        border-top:1px solid lightgray;
+                    }
+                </style>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--  모달 4-->
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullsize" >
+            <div class="modal-content">
+                <div class="modal-header"> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/d3fh7ADBKT4?si=Kxuxd_3T08by-p9L&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                </div>
+                
+                <style>
+                    #exampleModal2 .modal-footer{
+                        height:50px;
+                        border-top:1px solid lightgray;
+                    }
+                </style>
+                <div class="modal-footer">
+                
+                </div>
+            </div>
+            </div>
+        </div>        
+
+
+
 
         <!-- -------------------------------------------- OFFCANVS
         -------------------------------------------- -->
