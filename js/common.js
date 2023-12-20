@@ -21,6 +21,7 @@ offcanvas_btn_el.addEventListener('click', function () {
 
 let menuActiveArr = []; //활성 팝업객체 저장
 let isPopupOpend = []; //활성 팝업여부 표시
+let intervalid=null;
 
 const nav_menu_img_items = document.querySelectorAll('nav li>a');
 nav_menu_img_items.forEach(item => {
@@ -46,7 +47,7 @@ nav_menu_img_items.forEach(item => {
             })
 
             //팝업여부배열 false
-            isPopupOpend[submenuIdx] = false;
+            // isPopupOpend[submenuIdx] = false;
 
             //OFFCANVAS BTN 비활성화
             const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
@@ -103,7 +104,7 @@ nav_menu_img_items.forEach(item => {
                 }
             }
 
-            // 
+            // 빌딩풍위험지도 다시 띄우기
             const sectionEls = document.querySelectorAll('main section');
             sectionEls.forEach(sec => {
                 sec.style.display = 'none';
@@ -138,14 +139,95 @@ nav_menu_img_items.forEach(item => {
             //---------------------------
             // 그래프 표시하기
             //---------------------------
-            drawChart_ByRealTimeMenu();
+            console.log("btn clicked intervalId : ",intervalId);
+            //기존 동작하는 Interval 있으면 
+            if(intervalId!=null){
+                clearInterval(intervalId); //interval 제거
+                console.log("interval removed...interval : ",intervalId);
+                //-------------------------
+                //left chart지우기(안지워짐..)
+                //-------------------------
+                leftChart.destroy();
+
+                const leftChartParentEl = document.querySelector('.chartBlock>.left');
+                const oldChart = document.querySelector('.chartBlock>.left>#leftChart');
+                oldChart.remove();
+                const newLeftChart = document.createElement('canvas');
+                 newLeftChart.setAttribute('id','leftChart');
+                 newLeftChart.setAttribute('class','WWIWIIWIWW');
+                 leftChartParentEl.appendChild(newLeftChart);
+                
+                
+                 const ctx = newLeftChart.getContext('2d');
+                 //기존 로그데이터 초기화
+                 leftConfig = {
+                    type: 'line',
+                    data: {
+                            labels: [''],
+                            fill: false,
+                            datasets: [{
+                                label: '풍속 ',
+                                data: [''],
+                                fill: false,
+                                pointStyle:'circle',
+                                borderColor: '#2A76C7',
+                                pointRadius:10,
+                  
+                  
+                            }]
+                        },
+                  
+                        options: {
+                            responsive: true,
+                            plugins: {
+                            title: {
+                                display: true,
+                                text: ' 실시간 풍속변화(m/s)',
+                                align: 'start',
+                                color: '#2A76C7',
+                                },
+                                legend: {
+                                 display: false, // 레전드 감추기
+                                }
+                  
+                  
+                             },
+                                elements : {
+                                    line : {
+                                        tension : 0
+                                    }
+                                },
+                  
+                            }
+                  } 
+                leftChart = new Chart(ctx,leftConfig);
+
+
+                //-------------------------
+                //right chart지우기
+                //-------------------------
+                const ChartBlockRightEl =  document.querySelector('.chartBlock .right');
+                ChartBlockRightEl.removeChild(ChartBlockRightEl.children[0]);
+                const newrightChartEl = document.createElement('div');
+                newrightChartEl.setAttribute('id','container');
+                ChartBlockRightEl.appendChild(newrightChartEl);
+                rightChart();
+                //-------------------------
+                //테이블 값 지우기
+                //-------------------------
+                const tblEl = document.querySelector('.realtimeTbl tbody');
+                while(tblEl.lastChild!=null){
+                    tblEl.lastChild.remove();
+                }
+
+            }
+
+            intervalid =  drawChart_ByRealTimeMenu();
             //---------------------------
             // 이전꺼 지우기
             //---------------------------
 
-            //팝업여부배열 false
-            isPopupOpend[submenuIdx] = false;
-
+            
             //OFFCANVAS BTN 비활성화
             const offcanvas_btn_el = document.querySelector('.offcanvas_btn');
             if (offcanvas_btn_el.classList.contains('ToRight')) {

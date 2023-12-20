@@ -1,7 +1,10 @@
 
+let intervalId  = null;     //Interval Null유무
 
-var isIntervalInit;
+console.log("drawChart_ByRealTimeMenu() Not called.. intervalId : ",intervalId);
+
 const drawChart_ByRealTimeMenu = ()=>{
+
 
 if(true){
 
@@ -18,6 +21,9 @@ if(true){
     var formattedDate = year + month + day;
 
     console.log(formattedDate);
+
+
+    
     //실시간 풍향
     let realtimeVECIdx =["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"]
     let realtimeVECVal =["299","281","226","233","219","247","225","240","231","253"];
@@ -26,15 +32,16 @@ if(true){
     let realtimeWSDIdx = ["0600","0700","0800","0900","1000","1100","1200","1300","1400","1500"];
     let realtimeWSDVal = [0.9,1.4,2.4,1.9,3.3,2.3,3.7,3.8,2.4,4.2];
 
+
     idx=0;
     let basetime=null;
 
 
-            //1초마다 올리기
-            //idx=0;
-            var intervalId = setInterval(function(){
+           
+            //2초마다 올리기
+            intervalId = setInterval(function(){
 
-                isIntervalInit = intervalId;
+               
                     //----------------
                     //    left Chart
                     //----------------
@@ -85,7 +92,7 @@ if(true){
                     //----------------
                     //REALTIME 테이블에 추가
                     //----------------
-                    const tblEl = document.querySelector('.realtimeTbl');
+                    const tblEl = document.querySelector('.realtimeTbl tbody');
                     const trEl = document.createElement('tr');
                     const td1 = document.createElement('td'); td1.innerHTML=idx;
                     const td2 = document.createElement('td'); td2.innerHTML=realtimeWSDIdx[idx];
@@ -112,7 +119,16 @@ if(true){
             },2000);
         
         
+         console.log("drawChart_ByRealTimeMenu() called.. intervalId : ",intervalId);
+            return intervalId;
+        }  
 
-        }   //isintervalInit
+
+        realtimeVECVal =[];
+        //실시간 풍속
+        realtimeWSDIdx = [];
+        realtimeWSDVal = [];
+        intervalId = null;
         
 }//drawChart();
+
