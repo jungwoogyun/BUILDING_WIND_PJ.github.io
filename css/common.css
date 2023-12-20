@@ -465,10 +465,12 @@ body::-webkit-scrollbar{
 
 
 
+
+/* 06 실시간 풍속정보 */
 .section06{
     width : 100vw;
     height : 100vh;
-    border : 1px solid orange;
+    
     display:flex;
     justify-content: center;
   
@@ -476,41 +478,47 @@ body::-webkit-scrollbar{
 .section06>.left
 {
    
-    top:100px;
-    width : 50rem;
-    height : 40rem;
-    border : 1px solid orange;
+  
+    width : 30vw;
+    height : 40vh;
+
     margin : 10px;
     left:4vw;
-
+    position:fixed;
+    top:35vh !important;
+   
 }
 
 .section06>.right
 {
 
-    width : 50rem;
-    height : 40rem;
-    border : 1px solid orange;
+    width : 60vw;
+    height :  40vh;
+ 
     margin : 10px;
-    left:50vw;
+    left:35vw;
     top:-28.7vw;
-    
+ 
+    position:fixed;top:20vh;
 }
 
 
-.wrapper >.chartBlock{
-    height:400px;
+.section06>.right>.chartBlock{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin-top:10px;
 }
-.wrapper >.chartBlock>.left{
-    width : 200px;
-    height : 100%;
-    border-right : 1px solid lightgray;
-   
+
+.section06>.right>.chartBlock>.left{
+    
+    width:60vw !important;
+    height:100%;
 }
-.wrapper >.chartBlock>.right{
+.section06>.right>.chartBlock>.left>#leftChart{
+    width : 100%;
+}
+.section06>.right>.chartBlock>.left{
     width:200px;
     height : 100%;
     display: flex;
@@ -520,7 +528,7 @@ body::-webkit-scrollbar{
 }
 
 /* chart */
-#chartdiv {
+/* #chartdiv {
     width: 100%;
     height: 400px;
-  }
+  } 
