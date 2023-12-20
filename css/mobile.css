@@ -18,8 +18,6 @@
   };
  
 
-
-  
   
 body{
     font-family: 'Montserrat', sans-serif;
@@ -477,3 +475,115 @@ body::-webkit-scrollbar{
     height : 350px;
 }
 
+
+
+
+
+/* 06 실시간 풍속정보 */
+.section06{
+ display: block;
+ position: relative;  
+
+}
+.section06>.left
+{
+   display:block;
+   position: relative;
+   width : 100%;
+   height : 150px;
+   left:0;right:0;top:0;bottom:0;
+   margin:0 auto;
+   top:5px !important;
+   /* border : 1px solid red; */
+   border-bottom : 1px solid lightgray;
+   
+}
+.section06>.left img{
+    width : 100%;
+    height : 100%;
+}
+.section06>.right
+{
+    width : 100%;
+    display:block;
+    position: relative;  
+    left:0;right:0;top:10px;bottom:0;
+    margin:0 auto;
+}
+
+
+.section06>.right>.tbl_block{
+
+    display:block;
+    position: relative;  
+    /* border : 1px solid red; */
+    height : 150px;
+    font-size:0.5rem;
+    margin-bottom: 5px;
+    border-bottom : 1px solid lightgray;
+}
+
+
+.section06>.right>.chartBlock{
+    display:block;
+   position: relative;  
+   /* border : 1px solid red; */
+   display:flex;justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.section06>.right>.chartBlock>.left{
+   display:block;
+   position: relative;  
+   top:0;bottom:0;left:0;right:0;
+   border-bottom : 1px solid lightgray;
+   width : 100% !important;
+   height : 160px !important;
+
+    
+}
+.section06>.right>.chartBlock>.left{
+    /* width:200px;
+    height : 100%;
+    display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    display:block;
+}
+.section06>.right>.chartBlock>.left canvas{
+
+    display:block !important;
+    position:relative !important;
+}
+canvas#leftChart{
+    width :250px;
+
+}
+
+.section06>.right>.chartBlock>.right{
+  
+    left:0;right:0;top:0px;bottom:0;
+    margin:0 auto;
+    position:relative;
+    top: 35px;
+    width : 120px;
+    height : 120px;
+
+    /* border : 1px solid blue; */
+    z-index:-1;
+
+}
+.section06>.right>.chartBlock>.right  .container{
+    position: relative;
+    width : 150px;
+    height : 150px;
+    /* border : 1px solid blue; */
+}
+
+th,td{
+    width:50px;
+    text-align:center;
+}
+  

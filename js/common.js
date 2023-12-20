@@ -32,24 +32,11 @@ nav_menu_img_items.forEach(item => {
         //
         const submenuUrl = item.getAttribute('data-submenu');
         const submenuIdx = item.getAttribute('data-idx');
-        if (submenuUrl.includes("02") || submenuUrl.includes("04")) {
-            //팝업창 가운데로 맞추기
-            var popupWidth = 800;
-            var popupHeight = 600;
-            var popupX = (window.screen.width / 2) - (popupWidth / 2);
-            var popupY = (window.screen.height / 2) - (popupHeight / 3);
-            //팝업창 활성화
-            menuActiveArr[submenuIdx] = window.open(
-                submenuUrl,
-                '',
-                'status=no, height=' + popupHeight + ', width=' + popupWidth + ', left=' +
-                        popupX + ', top=' + popupY
-            );
-            isPopupOpend[submenuIdx] = true;
-            console.log(submenuIdx, menuActiveArr[submenuIdx]);
+        if (submenuUrl.includes("02")) {
+           
         }
         //01MENU 클릭시
-        if (submenuUrl.includes("01")) {
+        else if (submenuUrl.includes("01")) {
             const SectionEls = document.querySelectorAll('main section')
             SectionEls.forEach(sec => {
                 sec.style.display = 'none';
@@ -116,7 +103,7 @@ nav_menu_img_items.forEach(item => {
                 }
             }
 
-            //
+            // 
             const sectionEls = document.querySelectorAll('main section');
             sectionEls.forEach(sec => {
                 sec.style.display = 'none';
@@ -133,6 +120,7 @@ nav_menu_img_items.forEach(item => {
 
             })
 
+
         //-------------------------------------
         //실시간 풍속 정보를 클릭했을때
         //-------------------------------------
@@ -144,24 +132,13 @@ nav_menu_img_items.forEach(item => {
                 sec.style.display = 'none';
                 if (sec.classList.contains('section06')) {
                     sec.style.display = "block";
-                }
-
-                
+                }             
             })
 
             //---------------------------
             // 그래프 표시하기
             //---------------------------
-            
-
-
-
-
-
-
-
-
-
+            drawChart_ByRealTimeMenu();
             //---------------------------
             // 이전꺼 지우기
             //---------------------------
