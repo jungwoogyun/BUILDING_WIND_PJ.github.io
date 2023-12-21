@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xzhrszj4e9"></script>
+</head>
+<body>
+<div id="map" style="width:100%;height:800px;"></div>
+
+
+
+<script src="js/rangeDataSet.js"></script>
+
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(35.16073, 129.1688),
+    zoom: 15,
+    mapTypeId: naver.maps.MapTypeId.HYBRID,
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.SMALL,
+        position: naver.maps.Position.RIGHT_TOP
+    }
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+
+
+//-----------------------------------------
+// 이미지형 마커
+//-----------------------------------------
+// var position = new naver.maps.LatLng(35.16073, 129.1688);
+
+// var markerOptions = {
+//     position: position,
+//     map: map,
+//     icon: {
+//         url: './images/icon1.png',
+//         size: new naver.maps.Size(22, 35),
+//         origin: new naver.maps.Point(0, 0),
+//         anchor: new naver.maps.Point(11, 35)
+//     }
+// };
+
+// var marker = new naver.maps.Marker(markerOptions);
+// -----------------------------------------
+// 기본마커
+// -----------------------------------------
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(35.16073, 129.1688),
+    map: map
+});
+
+//-----------------------------------------
+// 마커 정보창
+//-----------------------------------------
+var contentString = [
+    '<div class="iw_inner">',
+    '   <h3>서울특별시청</h3>',
+    '   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br>',
+    '       <img src="./img/hi-seoul.jpg" width="55" height="55" alt="서울시청" class="thumb" /><br>',
+    '       02-120 | 공공,사회기관 > 특별,광역시청<br>',
+    '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+    '   </p>',
+    '</div>'
+].join('');
+var infowindow = new naver.maps.InfoWindow({
+    content: contentString
+});
+
+//-----------------------------------------
+// 마커 클릭 이벤트
+//-----------------------------------------
+naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+
+//-----------------------------------------
+//도형 그리기
+//-----------------------------------------
+var polygonGreen = new naver.maps.Polygon({
+    map: map,
+    paths: [[]],
+    fillColor: 'green',
+    fillOpacity: 0.6,
+    strokeColor: '',
+    strokeOpacity: 0.6,
+    strokeWeight: 3,
+    clickable: true,
+    zIndex:1,
+});
+
+// LCTPOLYGON XY
+var path = polygonGreen.getPaths().getAt(0);
+for(i=0;i<GREEN.length;i++){
+    path.push(GREEN[i]);
+}
+
+//임의로 마커 표시
+new naver.maps.Marker({map: map,position: {y: 35.1583793, _lat: 35.1583793, x: 129.1622554, _lng: 129.1622554}});
+new naver.maps.Marker({map: map,position: {y: 35.1590459, _lat: 35.1590459, x: 129.1686927, _lng: 129.1686927}});
+// new naver.maps.Marker({map: map,position: {y: 35.1558881, _lat: 35.1558881, x: 129.1758167, _lng: 129.1758167}});
+new naver.maps.Marker({map: map,position: {y: 35.1684834, _lat: 35.1684834, x: 129.1767179, _lng: 129.1767179}});
+// new naver.maps.Marker({map: map,position: {y: 35.1682028, _lat: 35.1682028, x: 129.1627275, _lng: 129.1627275}});
+
+
+
+
+console.log(GREEN);
+console.log(BLUE);
+console.log(RED);
+
+
+
+
+
+var polygonblueArr = []
+
+for(i=0;BLUE[i].length;i++){
+        
+        polygonblueArr[i] = new naver.maps.Polygon({
+            map: map,
+            paths: [[]],
+            fillColor: 'blue',
+            fillOpacity: 0.6,
+            strokeColor: '',
+            strokeOpacity: 0.6,
+            strokeWeight: 3,
+            clickable: false,
+            zIndex:5
+        });
+        console.log(polygonblueArr[i] );
+        for(j=0; j<BLUE[i].length;j++){
+            var p = polygonblueArr[i].getPaths().getAt(0);
+            p.push(BLUE[i][j]);
+        }
+}
+
+var polygonRedArr = []
+
+for(i=0;RED[i].length;i++){
+        
+        polygonRedArr[i] = new naver.maps.Polygon({
+            map: map,
+            paths: [[]],
+            fillColor: 'red',
+            fillOpacity: 0.6,
+            strokeColor: '',
+            strokeOpacity: 0.6,
+            strokeWeight: 3,
+            clickable: false,
+            zIndex:5
+        });
+        console.log(polygonRedArr[i] );
+        for(j=0; j<RED[i].length;j++){
+            var r = polygonRedArr[i].getPaths().getAt(0);
+            r.push(RED[i][j]);
+        }
+}
+
+
+
+
+
+
+
+
+
+naver.maps.Event.addListener(map, 'click', function(e) {
+
+    var point = e.latlng;
+
+    console.log(point);
+
+    var path = polygonblue02.getPaths().getAt(0);
+    path.push(point);
+
+    new naver.maps.Marker({
+        map: map,
+        position: point
+    });
+});
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
